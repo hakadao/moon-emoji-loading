@@ -1,0 +1,32 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #1c1c21;
+}
+
+.container {
+  display: flex;
+}
+
+.moon {
+  font-family: 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', Times,
+    Symbola, Aegyptus, Code2000, Code2001, Code2002, Musica, serif, LastResort;
+  font-size: 100px;
+  transition: 0.5s;
+  /* transform: scale(10); */
+  position: absolute;
+  opacity: .3;
+}
+
+@keyframes moonMove {
+  0% {
+    opacity: 0;
+  }
+}
