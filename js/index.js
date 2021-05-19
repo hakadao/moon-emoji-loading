@@ -1,7 +1,7 @@
-// const moon = '🌚🌑🌒🌓🌔🌕🌝🌖🌗🌘';
+// const moon = '🌑🌚🌒🌓🌔🌕🌝🌖🌗🌘';
 const moon = [
-  '&#x1F318',
   '&#x1F311',
+  '&#x1F31A',
   '&#x1F312',
   '&#x1F313',
   '&#x1F314',
@@ -9,27 +9,33 @@ const moon = [
   '&#x1F31D',
   '&#x1F316',
   '&#x1F317',
+  '&#x1F318',
 ]
-const moons = document.getElementsByClassName('moon')
+const moonContainers = document.getElementsByClassName('moon-container')
+let moonList = []
+
+for (let i = 0; i < moonContainers.length; i++) {
+  moonList.push(moonContainers[i].getElementsByClassName('moon'))
+}
 
 const loop = () => {
-  moons[0].innerHTML = moonMove(0);
-  moons[1].innerHTML = moonMove(.2);
-  moons[2].innerHTML = moonMove(.4);
-  moons[3].innerHTML = moonMove(.6);
-  moons[4].innerHTML = moonMove(.8);
-  moons[5].innerHTML = moonMove(1);
-  moons[6].innerHTML = moonMove(1.2);
-  moons[7].innerHTML = moonMove(1.4);
-  moons[8].innerHTML = moonMove(1.6);
-  moons[9].innerHTML = moonMove(1.8);
-  moons[10].innerHTML = moonMove(2);
+  for (let i = 0; i < moonList.length; i++) {
+    for (let j = 0; j < 10; j++) {
+      moonList[i][j].innerHTML = moonMove((1 + 0.1 * i) * j * 0.2)
+      moonList[i][j].style.transform = moonScale(j)
+    }
+  }
 
   requestAnimationFrame(loop)
 }
 
 function moonMove(delay) {
   return moon[Math.floor((Date.now() / 250 + delay) % moon.length)]
+}
+
+function moonScale(delay) {
+  let offset = Math.floor((Date.now() / 250 + delay) % moon.length)
+  return `scale(${1 - 0.1 * offset})`
 }
 
 window.addEventListener('load', () => {
