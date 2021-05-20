@@ -21,6 +21,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  will-change: contents;
 }
 
 .moon {
@@ -28,22 +29,22 @@ body {
     Symbola, Aegyptus, Code2000, Code2001, Code2002, Musica, serif, LastResort;
   font-size: 5rem;
   transition: 0.5s;
-  opacity: 0.25;
+  opacity: 0.35;
+  will-change: contents;
 }
 
-.moon-container:nth-child(1),
-.moon-container:nth-child(2) {
+/*Light effect*/
+/* .moon-container:nth-child(1) {
   z-index: -1;
   opacity: 1 !important;
 }
 
-.moon-container:nth-child(1)::after,
-.moon-container:nth-child(2)::after {
+.moon-container:nth-child(1)::after {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  backdrop-filter: blur(40px);
-}
+  backdrop-filter: blur(20px);
+} */

@@ -19,8 +19,10 @@ for (let i = 0; i < moonContainers.length; i++) {
 }
 
 const loop = () => {
+  let moonNum = 10
+
   for (let i = 0; i < moonList.length; i++) {
-    for (let j = 0; j < moonContainers[i].children.length; j++) {
+    for (let j = 0; j < moonNum; j++) {
       moonList[i][j].innerHTML = moonMove((1 + 0.1 * i) * j * 0.2)
       moonList[i][j].style.transform = moonScale(j)
     }
